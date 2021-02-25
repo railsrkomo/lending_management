@@ -1,0 +1,36 @@
+<%= form_with(model: fellow, local: true) do |form| %>
+  <% if fellow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fellow.errors.count, "error") %> prohibited this fellow from being saved:</h2>
+
+      <ul>
+        <% fellow.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% if fellow.friend_id %>
+      <%= fellow.friend.name %>::<%= fellow.friend.email %>
+    <% else %>
+      <%= form.label :friend_email %>
+      <%= form.text_field :friend_email %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reason_of %>
+    <%= form.text_area :reason_of %>
+  </div>
+
+  <div class="field">
+    <%= form.label :relation_since %>
+    <%= form.date_select :relation_since %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Friend:</strong>
+  <% user = User.find(@fellow.friend_id) %>
+  <% if user.present? %>
+    <%= user.name %>::<%= user.email %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Reason of:</strong>
+  <%= @fellow.reason_of %>
+</p>
+
+<p>
+  <strong>Relation since:</strong>
+  <%= @fellow.relation_since %>
+</p>
+
+<%= link_to 'Edit', edit_fellow_path(@fellow) %> |
+<%= link_to 'Back', fellows_path %>

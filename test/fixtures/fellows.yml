@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  friend: one
+  own: one
+  reason_of: MyText
+  relation_since: 2021-02-18
+
+two:
+  friend: two
+  own: two
+  reason_of: MyText
+  relation_since: 2021-02-18

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  lending_at: 2021-02-16
+  expected_return_at: 2021-02-16
+  lender: one
+  borrower: one
+
+two:
+  name: MyString
+  lending_at: 2021-02-16
+  expected_return_at: 2021-02-16
+  lender: two
+  borrower: two

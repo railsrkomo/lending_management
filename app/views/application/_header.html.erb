@@ -1,0 +1,13 @@
+<header>
+	<ul>
+		<% if logged_in? %>
+			<li><%= link_to "マイページ", user_path(current_user) %></li>
+			<li><%= link_to "仲間登録", new_fellow_path %></li>
+			<li><%= link_to "仲間一覧", fellows_path %></li>
+			<li><%= link_to "貸し出し", new_lending_path %></li>
+			<li><%= link_to "ログアウト", authentication_path, method: :delete %></li>
+		<% else%>
+			<li><%= link_to "ログイン", new_authentication_path %></li>
+		<% end %>
+	</ul>
+</header>
