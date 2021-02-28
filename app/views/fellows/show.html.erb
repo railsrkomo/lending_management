@@ -7,15 +7,17 @@
     <%= user.name %>::<%= user.email %>
   <% end %>
 </p>
-
 <p>
   <strong>Reason of:</strong>
   <%= @fellow.reason_of %>
 </p>
-
 <p>
   <strong>Relation since:</strong>
   <%= @fellow.relation_since %>
+</p>
+<p>
+  <strong>relationship:</strong>
+  <%= @fellow.relationship %>
 </p>
 
 <%= link_to 'Edit', edit_fellow_path(@fellow) %> |

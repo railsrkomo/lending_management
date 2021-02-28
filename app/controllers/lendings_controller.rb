@@ -1,25 +1,20 @@
 class LendingsController < ApplicationController
   before_action :set_lending, only: %i[ show edit update destroy ]
 
-  # GET /lendings or /lendings.json
   def index
     @lendings = Lending.all
   end
 
-  # GET /lendings/1 or /lendings/1.json
   def show
   end
 
-  # GET /lendings/new
   def new
     @lending = Lending.new
   end
 
-  # GET /lendings/1/edit
   def edit
   end
 
-  # POST /lendings or /lendings.json
   def create
     @lending = Lending.new(lending_params)
 
@@ -34,7 +29,6 @@ class LendingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /lendings/1 or /lendings/1.json
   def update
     respond_to do |format|
       if @lending.update(lending_params)
@@ -47,7 +41,6 @@ class LendingsController < ApplicationController
     end
   end
 
-  # DELETE /lendings/1 or /lendings/1.json
   def destroy
     @lending.destroy
     respond_to do |format|
@@ -57,13 +50,11 @@ class LendingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_lending
       @lending = Lending.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def lending_params
-      params.require(:lending).permit(:name, :lending_at, :expected_return_at, :lender_id, :borrower_id)
+      params.require(:lending).permit(:item_name, :lending_at, :expected_return_at, :lender_id, :borrower_id)
     end
 end

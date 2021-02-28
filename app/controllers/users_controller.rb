@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authentication_check, only: [:new, :create]
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :restrict_action_in_logged, only: [:new, :create]
 
   def show
   end
