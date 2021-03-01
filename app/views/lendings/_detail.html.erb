@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Item Name</th>
+      <th>Lending at</th>
+      <th>Expected return at</th>
+      <th>Lender</th>
+      <th>Borrower</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% lendings.each do |lending| %>
+      <tr>
+        <td><%= lending.item_name %></td>
+        <td><%= lending.lending_at %></td>
+        <td><%= lending.expected_return_at %></td>
+        <td><%= lending.lender.name %></td>
+        <td><%= lending.borrower.name %></td>
+        <td><%= link_to 'Show', lending %></td>
+        <td><%= link_to 'Edit', edit_lending_path(lending) %></td>
+        <td><%= link_to 'Destroy', lending, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

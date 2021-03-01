@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_02_18_095301) do
     t.string "item_name"
     t.date "lending_at"
     t.date "expected_return_at"
+    t.string "return_style"
     t.bigint "lender_id", null: false
     t.bigint "borrower_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @lending.name %>
+  <%= @lending.item_name %>
 </p>
 
 <p>
@@ -16,13 +16,18 @@
 </p>
 
 <p>
+  <strong>Return Style:</strong>
+  <%= @lending.return_style %>
+</p>
+
+<p>
   <strong>Lender:</strong>
-  <%= @lending.lender_id %>
+  <%= @lending.lender.name %>:<%= @lending.lender.email %>
 </p>
 
 <p>
   <strong>Borrower:</strong>
-  <%= @lending.borrower_id %>
+  <%= @lending.borrower.name %>:<%= @lending.borrower.email %>
 </p>
 
 <%= link_to 'Edit', edit_lending_path(@lending) %> |

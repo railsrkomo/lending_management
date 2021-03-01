@@ -4,6 +4,7 @@ class CreateLendings < ActiveRecord::Migration[6.0]
       t.string :item_name
       t.date :lending_at
       t.date :expected_return_at
+      t.string :return_style
       # t.references :lender, null: false, foreign_key: true
       # t.references :borrower, null: false, foreign_key: true
       t.references :lender, null: false

@@ -23,17 +23,21 @@
 
   <div class="field">
     <%= form.label :expected_return_at %>
-    <%= form.date_select :expected_return_at %>
+    <%= form.date_select :expected_return_at, default: Time.now + 7.days %>
   </div>
 
   <div class="field">
-    <%= form.label :lender_id %>
-    <%= form.text_field :lender_id %>
+    <%= form.label :return_style %>
+    <%= form.text_field :return_style %>
   </div>
-
+  
   <div class="field">
     <%= form.label :borrower_id %>
-    <%= form.text_field :borrower_id %>
+    <%= form.select :borrower_id do %>
+      <% current_user.friends.each do |f| %>
+        <option value=<%= f.id %>><%= f.email %></option>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="actions">

@@ -9,9 +9,9 @@
 		{ name: '高橋　花子', email: "hana@example.com", password: "hanapass"  },
 		 ])
   users.each {|u|
-	  #  u.friends << User.where.not(email: u.email)
-		User.where.not(email: u.email).each {|f|
-			u.fellows << f.fellows.new(friend_email: f.email, reason_of: "友だち", relation_since: Time.now)
-		}
+	   u.friends << User.where.not(email: u.email)
+		# User.where.not(email: u.email).each {|f|
+		# 	u.fellows << f.fellows.new(friend_email: f.email, reason_of: "友だち", relation_since: Time.now)
+		# }
 		puts u.name
 	}

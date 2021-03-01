@@ -2,21 +2,22 @@ class LendingsController < ApplicationController
   before_action :set_lending, only: %i[ show edit update destroy ]
 
   def index
-    @lendings = Lending.all
+    @lendings = current_user.lendings
+    @borrowings = current_user.borrowings
   end
 
   def show
   end
 
   def new
-    @lending = Lending.new
+    @lending = current_user.lendings.new
   end
 
   def edit
   end
 
   def create
-    @lending = Lending.new(lending_params)
+    @lending = current_user.lendings.new(lending_params)
 
     respond_to do |format|
       if @lending.save
@@ -55,6 +56,6 @@ class LendingsController < ApplicationController
     end
 
     def lending_params
-      params.require(:lending).permit(:item_name, :lending_at, :expected_return_at, :lender_id, :borrower_id)
+      params.require(:lending).permit(:item_name, :lending_at, :expected_return_at, :return_style, :lender_id, :borrower_id)
     end
 end

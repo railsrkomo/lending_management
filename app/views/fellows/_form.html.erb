@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="field">
+    <%# byebug %>
     <% if fellow.friend_id %>
       <%= fellow.friend.name %>::<%= fellow.friend.email %>
     <% else %>
@@ -27,7 +28,7 @@
 
   <div class="field">
     <%= form.label :relation_since %>
-    <%= form.date_select :relation_since %>
+    <%= form.date_select :relation_since, start_year: 1950 %>
   </div>
 
   <div class="actions">

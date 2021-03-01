@@ -2,12 +2,9 @@ class Fellow < ApplicationRecord
   belongs_to :friend, class_name: "User"
   belongs_to :user
 
-  # attribute :status, :string # 双方向の関係かを確認する
+  before_validation :set_friend_connect, if: :friend_email
   attribute :friend_email, :string
-  before_validation :set_friend_email, on: :create
-
-  validates :friend_email, presence: true, on: :create
-  validate :friend_email_check
+  validate :friend_email_check, if: :friend_email
 
 	def relationship
     if self.friend
@@ -23,20 +20,17 @@ class Fellow < ApplicationRecord
 	end
 
   private
-  def set_friend_email
-    if user = User.find_by(email: self.friend_email.downcase)
-      self.friend_id = user.id
+  def set_friend_connect
+    if friend_user = User.find_by(email: self.friend_email.downcase)
+      self.friend_id = friend_user.id
     end
   end
 
   def friend_email_check
-    user = self.user
-    if user.email == friend_email
+    if self.user.email == friend_email
       errors.add(:friend_email, "自身のメールアドレスです")
-    elsif user.friends.where(email: friend_email).present?
+    elsif self.user.friends.where(email: friend_email).present?
       errors.add(:friend_email, "既に登録済みです")
-    else
-      true
     end
   end
 
