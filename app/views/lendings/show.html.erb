@@ -12,8 +12,13 @@
 
 <p>
   <strong>Expected return at:</strong>
-  <%= @lending.expected_return_at %>
+  <% if @lending.expected_return_at >= Time.now %>
+    <span><%= @lending.expected_return_at %></span>
+  <% else%>
+    <span class="limit_exceeded"><%= @lending.expected_return_at %></span>
+  <% end %>
 </p>
+
 
 <p>
   <strong>Return Style:</strong>
