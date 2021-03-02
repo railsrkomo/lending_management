@@ -2,12 +2,12 @@
 
 <h1>Lendings</h1>
 
-<%= render "detail", lendings: @lendings %>
+<%= render "detail", dealings: @lendings, side: "lender" %>
 
 <br>
 <h1>Borrowings</h1>
 
-<%= render "detail", lendings: @borrowings %>
+<%= render "detail", dealings: @borrowings, side: "borrower" %>
 
 <br>
 <%= link_to 'New Lending', new_lending_path %>

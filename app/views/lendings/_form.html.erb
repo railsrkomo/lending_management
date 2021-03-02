@@ -33,11 +33,7 @@
   
   <div class="field">
     <%= form.label :borrower_id %>
-    <%= form.select :borrower_id do %>
-      <% current_user.friends.each do |f| %>
-        <option value=<%= f.id %>><%= f.email %></option>
-      <% end %>
-    <% end %>
+    <%= form.collection_select :borrower_id, current_user.friends, :id, :email, selected: lending.borrower_id %>
   </div>
 
   <div class="actions">
