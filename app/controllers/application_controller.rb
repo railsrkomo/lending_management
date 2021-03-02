@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
 			redirect_to new_authentication_path
 		end
 	end
+
+	def restrict_action_in_logged
+		if logged_in?
+			redirect_to current_user
+		end
+	end	
 end

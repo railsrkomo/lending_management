@@ -7,6 +7,7 @@ class FellowsController < ApplicationController
   end
 
   def show
+    @fellow.relationship
   end
 
   def new

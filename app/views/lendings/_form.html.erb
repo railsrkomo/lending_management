@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :item_name %>
+    <%= form.text_field :item_name %>
   </div>
 
   <div class="field">
@@ -23,17 +23,17 @@
 
   <div class="field">
     <%= form.label :expected_return_at %>
-    <%= form.date_select :expected_return_at %>
+    <%= form.date_select :expected_return_at, default: Time.now + 7.days %>
   </div>
 
   <div class="field">
-    <%= form.label :lender_id %>
-    <%= form.text_field :lender_id %>
+    <%= form.label :return_style %>
+    <%= form.text_field :return_style %>
   </div>
-
+  
   <div class="field">
     <%= form.label :borrower_id %>
-    <%= form.text_field :borrower_id %>
+    <%= form.collection_select :borrower_id, current_user.friends, :id, :email, selected: lending.borrower_id %>
   </div>
 
   <div class="actions">

@@ -1,5 +1,6 @@
 class AuthenticationsController < ApplicationController
   skip_before_action :authentication_check, except: :destroy
+  before_action :restrict_action_in_logged, only: [:new, :create]
 
   def new
   end

@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(version: 2021_02_18_095301) do
   end
 
   create_table "lendings", force: :cascade do |t|
-    t.string "name"
+    t.string "item_name"
     t.date "lending_at"
     t.date "expected_return_at"
+    t.string "return_style"
     t.bigint "lender_id", null: false
     t.bigint "borrower_id", null: false
     t.datetime "created_at", precision: 6, null: false
